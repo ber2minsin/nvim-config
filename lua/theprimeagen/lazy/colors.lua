@@ -39,6 +39,9 @@ return {
                 styles = {
                     italic = false,
                 },
+                enable = {
+                    terminal = false
+                }
             })
 
             vim.cmd("colorscheme rose-pine")

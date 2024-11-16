@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -22,10 +21,10 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -54,4 +53,17 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-
+vim.api.nvim_set_keymap('n', '<leader>wr', [[
+    :if &wrap == 0<CR>
+    :set number<CR>                " (optional) enable line numbers for visual verification
+    :set textwidth=80<CR>          " set text width to 80 for automatic wrapping
+    :set wrapmargin=0<CR>          " set wrap margin to 0
+    :set formatoptions+=t<CR>      " enable automatic line wrapping
+    :set linebreak<CR>             " break lines by word rather than character
+    :set wrap<CR>                   " enable wrapping
+    :else<CR>
+    :set nowrap<CR>                 " disable wrapping
+    :set textwidth=0<CR>           " reset text width to 0
+    :set number<CR>                 " (optional) keep line numbers enabled
+    :endif<CR>
+]], { noremap = true, silent = true })
