@@ -9,6 +9,15 @@ return {
     { "nvim-neotest/nvim-nio" },
     { 'neovim/nvim-lspconfig' },
     { 'simrat39/rust-tools.nvim' },
+    { "github/copilot.vim"},
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("copilot").setup({})
+    --     end,
+    -- },
     -- {
     --     "epwalsh/obsidian.nvim",
     --     version = "*", -- recommended, use latest release instead of latest commit
@@ -44,9 +53,9 @@ return {
     -- },
     { 'numToStr/Comment.nvim' },
     {
-      'mrcjkb/rustaceanvim',
-      version = '^4',
-      lazy = false,
+        'mrcjkb/rustaceanvim',
+        version = '^4',
+        lazy = false,
     },
     { "simrat39/rust-tools.nvim" },
     {
