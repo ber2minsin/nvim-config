@@ -38,9 +38,10 @@ return {
                 disable_background = true,
                 styles = {
                     italic = false,
+                    transparency = true
                 },
                 enable = {
-                    terminal = false
+                    terminal = false,
                 }
             })
 
