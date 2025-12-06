@@ -8,10 +8,16 @@ return {
     },
 
     config = function()
-        require('telescope').setup({})
-
+        require('telescope').setup({
+            defaults = {
+                file_ignore_patterns = { "node_modules/.*", ".git/.*" },             -- Add patterns to ignore
+                find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' }, -- Use ripgrep and exclude .git folder
+            },
+        })
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+        vim.keymap.set('n', '<leader>pf', function()
+            builtin.find_files({ hidden = true }) -- Show hidden files and respect .gitignore
+        end, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
         vim.keymap.set('n', '<leader>pws', function()
             local word = vim.fn.expand("<cword>")
@@ -27,4 +33,3 @@ return {
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
     end
 }
-
